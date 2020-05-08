@@ -46,10 +46,10 @@ export default function KeyWordCard() {
         <CardMedia className={classes.media} image={ts_profile} />
         <CardContent>
           <ThemeProvider theme={fontTheme}>
-            <Typography variant="body1" align="center">
+            <Typography variant="body1" align="center" width="75%">
               Taylor Swift
             </Typography>
-            <Typography variant="body2" align="center">
+            <Typography variant="body2" align="center" width="75%">
               CMBYN
             </Typography>
           </ThemeProvider>
