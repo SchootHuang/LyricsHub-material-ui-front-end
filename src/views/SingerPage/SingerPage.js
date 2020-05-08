@@ -41,7 +41,7 @@ export default function SingerPage(props) {
       <div
         className={classes.pageHeader}
         style={{
-          backgroundImage: {MyPhoto},//"linear-gradient(to bottom, #3D1B7C, #191931)",
+          backgroundImage: "url(" + MyPhoto + ")",//"linear-gradient(to bottom, #3D1B7C, #191931)",
           backgroundSize: "cover",
           backgroundPosition: "top center"
         }}
