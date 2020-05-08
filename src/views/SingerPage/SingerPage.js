@@ -31,17 +31,17 @@ export default function SingerPage(props) {
   const { ...rest } = props;
   return (
     <div>
-      <Header
+      {/* <Header
         absolute
         color="transparent"
         brand="LyricsHub"
         rightLinks={<HeaderLinks />}
         {...rest}
-      />
+      /> */}
       <div
         className={classes.pageHeader}
         style={{
-          backgroundImage: MyPhoto,//"linear-gradient(to bottom, #3D1B7C, #191931)",
+          backgroundImage: {MyPhoto},//"linear-gradient(to bottom, #3D1B7C, #191931)",
           backgroundSize: "cover",
           backgroundPosition: "top center"
         }}

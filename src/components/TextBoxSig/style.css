@@ -1,0 +1,13 @@
+
+.squareSig {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border: 1px solid transparent;
+    padding: 40px;
+    text-align: start;
+    width: 400px;
+    height: 500px;
+    border-style: ridge;
+    margin: 10%;
+  }
