@@ -1,6 +1,6 @@
 import { container } from "assets/jss/material-kit-react.js";
 
-const signupPageStyle = {
+const singerPageStyle = {
   container: {
     ...container,
     zIndex: "2",
@@ -87,17 +87,54 @@ const signupPageStyle = {
     color: "#495057"
   },
 
-  photo: {
-    width: "50%",
-    marginLeft: "10%",
-    float: "left"
+  cover: {
+    position: "fixed",
+    top: "0",
+    width: "100%",
+    backgroundPosition: "center",
+    backgroundRepeat: "repeat",
+    height: "100%",
+    backgroundSize: "cover",
+    backgroundImage:
+      'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./utils/background.png")',
+    zIndex: "bottom"
   },
-  rightElems: {
-    float: "right",
+  coverTrap: {
+    position: "fixed",
+    top: "0",
+    width: "100%",
+    height: "100%"
+  },
+  square: {
+    position: "relative",
+    left: "650px",
+    top: "50px",
+    border: "1px solid transparent",
+    padding: "40px",
+    textAlign: "start",
+    width: "300px",
+    height: "500px",
+    borderStyle: "ridge",
+    margin: "10%"
+  },
+  squareSig: {
     position: "absolute",
-    right: "10",
-    width: "40%"
+    right: "0px",
+    top: "0px",
+    border: "1px solid transparent",
+    padding: "40px",
+    textAlign: "start",
+    width: "400px",
+    height: "500px",
+    borderStyle: "ridge",
+    margin: "10%"
+  },
+  content: {
+    fontSize: "2em",
+    fontFamily: "'Noto Sans SC', sans-serif",
+    color: "black",
+    float: "right"
   }
 };
 
-export default signupPageStyle;
+export default singerPageStyle;

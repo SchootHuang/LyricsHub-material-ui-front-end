@@ -18,7 +18,6 @@ import logo_lg from "assets/img/lyricshub-lg.png";
 // import logo_md from "assets/img/lyricshub-md.png";
 // import logo_sm from "assets/img/lyricshub-sm.png";
 
-
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 // import styles from "assets/jss/material-kit-react/views/components.js";
 const useStyles = makeStyles(styles);
@@ -49,11 +48,11 @@ export default function LoginPage(props) {
       >
         <div className={classes.container}>
           <GridContainer justify="center" alignItems="center">
-            <GridItem item xs={1} sm={2}/>
+            <GridItem item xs={1} sm={2} />
             <GridItem xs={6} sm={6} md={6} lg={7}>
-              <img src={logo_lg} width="100%" height="100%"/>
+              <img src={logo_lg} width="100%" height="100%" />
             </GridItem>
-            <GridItem item xs={1} sm={2}/>
+            <GridItem item xs={1} sm={2} />
 
             <GridItem xs={9} sm={8} md={9} lg={9}>
               <SearchBar></SearchBar>
@@ -61,7 +60,7 @@ export default function LoginPage(props) {
           </GridContainer>
           <div className={classNames(classes.main, classes.mainRaised)}>
             <GridContainer>
-              <GridItem item xs={1} sm={1} md={3} lg={5}/>
+              <GridItem item xs={1} sm={1} md={3} lg={5} />
 
               <GridItem item xs={12} sm={13}>
                 {/* container for keywords */}
@@ -85,12 +84,10 @@ export default function LoginPage(props) {
                   <GridItem xs={3} sm={3} md={3} lg={3}>
                     <KeyWordCard></KeyWordCard>
                   </GridItem>
-
                 </GridContainer>
               </GridItem>
 
-              <GridItem item xs={1} sm={1} md={3} lg={5}/>
-
+              <GridItem item xs={1} sm={1} md={3} lg={5} />
             </GridContainer>
           </div>
         </div>
