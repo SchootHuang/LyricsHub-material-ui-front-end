@@ -17,6 +17,7 @@ import Buttons from "components/Buttons/Buttons.js";
 //import ExampleComponent from "react-rounded-image";
 // round component img
 import MyPhoto from "assets/img/Taylor_Swift.png";
+import Trapzoid from "assets/img/trapezoid.png";
 
 import stylesLogin from "assets/jss/material-kit-react/views/singerPage.js";
 // import styles from "assets/jss/material-kit-react/views/components.js";
@@ -46,7 +47,11 @@ export default function SingerPage(props) {
           backgroundPosition: "top center"
         }}
       >
-        <div className="cover">
+        <div className={classes.backgroundOverlap}
+          style={{
+            backgroundImage: "url(" + Trapzoid + ")",//"linear-gradient(to bottom, #3D1B7C, #191931)",
+          }}
+        >
           <div className="roundImage">
             {/* <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="300" imageHeight="300" roundedSize="10"/> */}
           </div>
