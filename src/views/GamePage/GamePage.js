@@ -7,7 +7,7 @@ import {makeStyles} from "@material-ui/core/styles";
 // core components
 // import Header from "components/Header/Header.js";
 // import HeaderLinks from "components/Header/HeaderLinks.js";
-import HeaderSingerPage from "components/HeaderSingerPage/HeaderSingerPage.js";
+import HeaderSearchBar from "components/HeaderSearchBar/HeaderSearchBar.js";
 import Footer from "components/Footer/Footer.js";
 import TextBoxSig from "components/TextBoxSig/TextBoxSig.jsx";
 import Buttons from "components/Buttons/Buttons.js";
