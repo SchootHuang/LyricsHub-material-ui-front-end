@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // @material-ui/core components
 import {makeStyles} from "@material-ui/core/styles";
 
@@ -28,6 +28,8 @@ const styles = makeStyles(stylesLogin);
 
 export default function SingerPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  //state for storing similar artiest
+  const [similarArtists, setSimilarArtists] = useState([]);
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
@@ -36,20 +38,24 @@ export default function SingerPage(props) {
     ...rest
   } = props;
 
-  //Change this to actual 
-  const artistName = '50cent';
-
-  //starting firebase connection
-  const firebaseRef = db.database().ref("artists/" + artistName)
-
-  //interpret the returned value
-  firebaseRef.on("value", snap => {
-    var returnedValue = JSON.stringify(snap.val(), null, 3);
-    //slice the returned string into array
-    var obj = returnedValue.replace('{','').replace('}','').replace('\n','').split(',');
-    //alert for debug usage
-    //alert(obj)
-  });
+  React.useEffect(() =>{
+    //Change this to actual 
+    const artistName = '50cent';
+    //starting firebase connection
+    const firebaseRef = db.database().ref("artists/" + artistName)
+    firebaseRef.on("value", snap => {
+      //interpret the returned value
+      var returnedValue = JSON.stringify(snap.val(), null, 3);
+      //slice the returned string into array
+      var obj = returnedValue.replace('r,kelly','r.kelly').replace('{','').replace('}','').replace('\n','').trim.split(',');
+      //Set the state into current object
+      setSimilarArtists(obj);
+    });
+  }, [])
+  //alert for debug usage
+  console.log(similarArtists);
+  
+  
 
 
   return (<div>
@@ -60,7 +66,7 @@ export default function SingerPage(props) {
         backgroundSize: "cover",
         backgroundPosition: "top center"
       }}>
-        
+      
       <div className={classes.backgroundOverlap} style={{
           backgroundImage: "url(" + Trapzoid + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
         }}>
