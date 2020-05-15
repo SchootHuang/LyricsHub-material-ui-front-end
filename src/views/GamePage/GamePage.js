@@ -11,6 +11,8 @@ import HeaderSearchBar from "components/HeaderSearchBar/HeaderSearchBar.js";
 import Footer from "components/Footer/Footer.js";
 import TextBoxSig from "components/TextBoxSig/TextBoxSig.jsx";
 import Buttons from "components/Buttons/Buttons.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
 
 import stylesLogin from "assets/jss/material-kit-react/views/singerPage.js";
 // import styles from "assets/jss/material-kit-react/views/components.js";
