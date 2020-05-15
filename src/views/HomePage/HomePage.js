@@ -13,6 +13,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import SearchBar from "components/SearchBar/SearchBar.js";
 import KeyWordCard from "components/KeyWord/KeyWordCard.js";
+import TrendingLyrics from "components/TrendingLyrics/TrendingLyrics";
 
 import logo_lg from "assets/img/lyricshub-lg.png";
 // import logo_md from "assets/img/lyricshub-md.png";
@@ -49,9 +50,9 @@ export default function LoginPage(props) {
         <div className={classes.container}>
           <GridContainer justify="center" alignItems="center">
             <GridItem item xs={1} sm={2} />
-            <GridItem xs={6} sm={6} md={6} lg={7}>
-              <img src={logo_lg} width="100%" height="100%" />
-            </GridItem>
+              <GridItem xs={6} sm={6} md={6} lg={7}>
+                <img src={logo_lg} width="100%" height="100%" />
+              </GridItem>
             <GridItem item xs={1} sm={2} />
 
             <GridItem xs={9} sm={8} md={9} lg={9}>
@@ -68,7 +69,7 @@ export default function LoginPage(props) {
                   <GridItem xs={12}>
                     <div className={classes.title}>
                       <h3>Today's KeyWord</h3>
-                      <h5>Love</h5>
+                      <h3>Love</h3>
                     </div>
                   </GridItem>
 
@@ -86,6 +87,31 @@ export default function LoginPage(props) {
                   </GridItem>
                 </GridContainer>
               </GridItem>
+              <GridItem item xs={1} sm={1} md={3} lg={5} />
+            </GridContainer>
+
+
+            {/* Trending Lyrics */}
+            <GridContainer>
+              <GridItem item xs={1} sm={1} md={3} lg={5} />
+
+              <GridItem item xs={12} sm={13}>
+                {/* container for keywords */}
+                <GridContainer justify="left"  spacing={1}>
+                  <GridItem xs={12}>
+                    <div className={classes.title}>
+                      <h3>Trending Lyrics</h3>
+                      <h3>"XXOOXXO"</h3>
+                    </div>
+                  </GridItem>
+
+                  <GridItem xs={12} sm={12} md={12} lg={12}>
+                    <TrendingLyrics></TrendingLyrics>
+                  </GridItem>
+                  
+                </GridContainer>
+              </GridItem>
+
 
               <GridItem item xs={1} sm={1} md={3} lg={5} />
             </GridContainer>
