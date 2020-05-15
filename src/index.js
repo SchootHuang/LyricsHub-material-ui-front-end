@@ -23,7 +23,7 @@ ReactDOM.render(
       <Route path="/login-page" component={LoginPage} />
       <Route path="/component-page" component={Components} />
       <Route path="/singer-page" component={SingerPage} /> 
-      <Route path="/game-page" component={GamePage} /> 
+      {/*<Route path="/game-page" component={GamePage} /> */}
 
       {/* <Route path="/home-page" component={HomePage} /> */}
 

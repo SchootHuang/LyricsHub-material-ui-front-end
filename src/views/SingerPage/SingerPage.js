@@ -21,6 +21,8 @@ import MyPhoto from "assets/img/Taylor_Swift.png";
 import Trapzoid from "assets/img/trapezoid.png";
 
 import stylesLogin from "assets/jss/material-kit-react/views/singerPage.js";
+import db from '../../database.js';
+
 // import styles from "assets/jss/material-kit-react/views/components.js";
 const styles = makeStyles(stylesLogin);
 
@@ -33,6 +35,23 @@ export default function SingerPage(props) {
   const {
     ...rest
   } = props;
+
+  //Change this to actual 
+  const artistName = '50cent';
+
+  //starting firebase connection
+  const firebaseRef = db.database().ref("artists/" + artistName)
+
+  //interpret the returned value
+  firebaseRef.on("value", snap => {
+    var returnedValue = JSON.stringify(snap.val(), null, 3);
+    //slice the returned string into array
+    var obj = returnedValue.replace('{','').replace('}','').replace('\n','').split(',');
+    //alert for debug usage
+    //alert(obj)
+  });
+
+
   return (<div>
     <HeaderSingerPage/>
     <div className={classes.pageHeader} style={{
