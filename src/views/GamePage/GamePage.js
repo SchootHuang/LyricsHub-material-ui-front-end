@@ -26,7 +26,7 @@ export default function SingerPage(props) {
     ...rest
   } = props;
   return (<div>
-    <HeaderSingerPage/>
+    <HeaderSearchBar/>
     <div className={classes.pageHeader} style={{
         backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
         backgroundSize: "cover",
