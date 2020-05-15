@@ -15,7 +15,7 @@ import Buttons from "components/Buttons/Buttons.js";
 // import logo_sm from "assets/img/lyricshub-sm.png";
 
 // round component
-//import ExampleComponent from "react-rounded-image";
+import ExampleComponent from "react-rounded-image";
 // round component img
 import MyPhoto from "assets/img/Taylor_Swift.png";
 import Trapzoid from "assets/img/trapezoid.png";
@@ -54,28 +54,28 @@ export default function SingerPage(props) {
 
   return (<div>
     <HeaderSingerPage/>
+    
     <div className={classes.pageHeader} style={{
         backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
         backgroundSize: "cover",
         backgroundPosition: "top center"
       }}>
+        
       <div className={classes.backgroundOverlap} style={{
           backgroundImage: "url(" + Trapzoid + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
         }}>
-
-        <div className="roundImage">
-          {/* <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="300" imageHeight="300" roundedSize="10"/> */}
+        <div className={classes.round}>
+          { <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="700" imageHeight="700" roundedSize="0"/> }
         </div>
-
-        <TextBoxSig className="rightElems"></TextBoxSig>
-
+        <div className="rightElems">
+          <TextBoxSig/>
+        </div>
         <div className="rightElems">
           <Buttons/>
         </div>
-      </div>
-
-      <Footer whiteFont="whiteFont"/>
-    </div>
+        </div>
+          <Footer whiteFont="whiteFont"/>
+        </div>
   </div>);
 }
 

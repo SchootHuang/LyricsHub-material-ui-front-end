@@ -96,7 +96,7 @@ const singerPageStyle = {
     width: "100%",
     height: "45%",
     backgroundPosition: "top center",
-    // backgroundRepeat: "repeat",
+     backgroundRepeat: "no-repeat",
     // height: "100%",
     // backgroundSize: "cover",
     backgroundImage:
@@ -151,6 +151,12 @@ const singerPageStyle = {
     fontFamily: "'Noto Sans SC', sans-serif",
     color: "black",
     float: "right"
+  },
+  round:{
+    position: "absolute",
+  },
+  rightElems:{
+    position:"absolute",
   }
 };
 
