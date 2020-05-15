@@ -7,18 +7,12 @@ import {makeStyles} from "@material-ui/core/styles";
 // core components
 // import Header from "components/Header/Header.js";
 // import HeaderLinks from "components/Header/HeaderLinks.js";
-import HeaderSingerPage from "components/HeaderSingerPage/HeaderSingerPage.js";
+import HeaderSearchBar from "components/HeaderSearchBar/HeaderSearchBar.js";
 import Footer from "components/Footer/Footer.js";
 import TextBoxSig from "components/TextBoxSig/TextBoxSig.jsx";
 import Buttons from "components/Buttons/Buttons.js";
-// import logo_md from "assets/img/lyricshub-md.png";
-// import logo_sm from "assets/img/lyricshub-sm.png";
-
-// round component
-//import ExampleComponent from "react-rounded-image";
-// round component img
-import MyPhoto from "assets/img/Taylor_Swift.png";
-import Trapzoid from "assets/img/trapezoid.png";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
 
 import stylesLogin from "assets/jss/material-kit-react/views/singerPage.js";
 // import styles from "assets/jss/material-kit-react/views/components.js";
@@ -34,7 +28,7 @@ export default function SingerPage(props) {
     ...rest
   } = props;
   return (<div>
-    <HeaderSingerPage/>
+    <HeaderSearchBar/>
     <div className={classes.pageHeader} style={{
         backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
         backgroundSize: "cover",
@@ -59,5 +53,3 @@ export default function SingerPage(props) {
     </div>
   </div>);
 }
-
-//<ThemeProvider theme={theme}> </ThemeProvider>

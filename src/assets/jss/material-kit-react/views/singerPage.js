@@ -87,17 +87,34 @@ const singerPageStyle = {
     color: "#495057"
   },
 
-  cover: {
+  // added stuff
+  backgroundOverlap: {
+    // position: "fixed",
+    // top: "0",
     position: "fixed",
-    top: "0",
+    bottom: 0,
     width: "100%",
-    backgroundPosition: "center",
-    backgroundRepeat: "repeat",
-    height: "100%",
-    backgroundSize: "cover",
+    height: "45%",
+    backgroundPosition: "top center",
+    // backgroundRepeat: "repeat",
+    // height: "100%",
+    // backgroundSize: "cover",
     backgroundImage:
-      'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./utils/background.png")',
-    zIndex: "bottom"
+      'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./utils/background.png")'
+    //zIndex: "bottom"
+  },
+
+  cover: {
+    // position: "fixed",
+    // top: "0",
+    // width: "100%",
+    // backgroundPosition: "center",
+    // backgroundRepeat: "repeat",
+    // height: "100%",
+    // backgroundSize: "cover",
+    // backgroundImage:
+    //   'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./utils/background.png")',
+    // zIndex: "bottom"
   },
   coverTrap: {
     position: "fixed",
