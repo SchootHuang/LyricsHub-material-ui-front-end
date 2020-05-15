@@ -32,6 +32,10 @@
   margin: 10%;
 }
 
+.roundImage {
+  position: center;
+}
+
 .squareSig {
   position: absolute;
   right: 0px;
