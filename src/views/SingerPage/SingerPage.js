@@ -40,6 +40,7 @@ export default function SingerPage(props) {
     ...rest
   } = props;
 
+  //use hook to automatically run before rendering the page
   React.useEffect(() =>{
     //Change this to actual 
     const artistName = '50cent';
