@@ -30,6 +30,8 @@ export default function SingerPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   //state for storing similar artiest
   const [similarArtists, setSimilarArtists] = useState([]);
+  //state for storing song of this artist
+  const [artistWork, setArtistWork] = useState([]);
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
@@ -47,13 +49,26 @@ export default function SingerPage(props) {
       //interpret the returned value
       var returnedValue = JSON.stringify(snap.val(), null, 3);
       //slice the returned string into array
-      var obj = returnedValue.replace('r,kelly','r.kelly').replace('{','').replace('}','').replace('\n','').trim.split(',');
+      var obj = returnedValue.replace('r,kelly','r.kelly').replace('{','').replace('}','').replace('\n','').trim().split(',');
       //Set the state into current object
       setSimilarArtists(obj);
     });
+
+    const firebaseSongsRef = db.database().ref("songs");
+    firebaseSongsRef.orderByChild('artist').equalTo(artistName).on("value", function(snapshot) {
+      var returned_songs = [];
+      snapshot.forEach(function(data) {
+          returned_songs.push(data.val().title);
+      });
+      // Shuffle array, randomly choose 10 songs
+      let selected = returned_songs.sort(() => 0.5 - Math.random()).slice(0, 10);
+      //update search to state
+      setArtistWork(selected);
+  });
   }, [])
   //alert for debug usage
-  console.log(similarArtists);
+  //console.log(similarArtists);
+  //console.log(artistWork);
   
   
 
