@@ -102,7 +102,7 @@ export default function GameCard(props) {
             : [classes.cardBody, classes.lyrics].join(" ")
         }
       >
-        <p>{props.singer.lyrics}</p>
+        <p>{props.singer.lyrics[props.index]}</p>
       </CardBody>
     );
   } else {

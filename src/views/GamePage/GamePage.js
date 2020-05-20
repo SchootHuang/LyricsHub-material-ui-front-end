@@ -16,18 +16,30 @@ const singers = [
   // place holder
   {
     name: "Taylor Swift",
-    lyrics:
-      "some lyrics bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
+    lyrics: [
+      "Taylor Swift: some lyrics bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
+      "some lyrics ...........lyrics .....................lyrics ..............lyrics ....................lyrics ............lyrics ..........lyrics ............................................................................",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    ],
+    correctAnswer: 0,
   },
   {
     name: "Singer Name 2",
-    lyrics:
+    lyrics: [
+      "Singer Name 2) some lyrics Vestibulum lectus mauris ultrices eros in cursus turpis massa. Nullam ac tortor vitae purus faucibus. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Varius morbi enim nunc faucibus a pellentesque sit amet. Tempus imperdiet nulla malesuada pellentesque. Id aliquet risus feugiat in ante metus dictum. Et tortor at risus viverra adipiscing. Mattis molestie a iaculis at erat pellentesque. Elementum nibh tellus molestie nunc non blandit massa enim nec. Purus gravida quis blandit turpis. Dignissim convallis aenean et tortor at risus viverra adipiscing at. ",
       "some lyrics ...........lyrics .....................lyrics ..............lyrics ....................lyrics ............lyrics ..........lyrics ............................................................................",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    ],
+    correctAnswer: 1,
   },
   {
     name: "Singer Name 3",
-    lyrics:
-      "some lyrics ......(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ...........(:......?...!.....  :) ............",
+    lyrics: [
+      "some lyrics bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
+      "some lyrics Turpis cursus in hac habitasse platea. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Et leo duis ut diam quam nulla porttitor. Non nisi est sit amet facilisis magna etiam tempor orci. Sit amet facilisis magna etiam. Parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Nibh tortor id aliquet lectus proin nibh nisl. Nisl purus in mollis nunc sed id semper risus in. Bibendum at varius vel pharetra. Tristique magna sit amet purus. Cras sed felis eget velit aliquet.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    ],
+    correctAnswer: 2,
   },
 ];
 
@@ -36,10 +48,12 @@ const useStyles = makeStyles(styles);
 export default function GamePage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
   const [prompt, setPrompt] = useState("Who is your favorite singer?");
-  const [cardSelection, setCardSelection] = useState([false, false, false]);
+  const [singerSelected, setSingerSelected] = useState(0);
+  const [answer, setAnswer] = useState(-1);
+  const [correctAnswer, setCorrectAnswer] = useState(singers[0].correctAnswer);
   const [step, setStep] = useState(0);
   const [btnText, setBtnText] = useState("Next");
-  const [answerCorrectness, setAnswerCorrectness] = useState(false);
+  const [score, setScore] = useState(0);
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
@@ -50,7 +64,8 @@ export default function GamePage(props) {
       alert("Please select a card!");
       return;
     }
-    setCardSelection([false, false, false]);
+    setAnswer(-1);
+    // setCardSelection([false, false, false]);
     if (step === 0) {
       setPrompt("Guess which Lyrics is AI generated?");
       setBtnText("Submit");
@@ -58,10 +73,11 @@ export default function GamePage(props) {
     } else if (step === 1) {
       setBtnText("Restart");
       setStep(step + 1);
-      if (answerCorrectness) {
-        setPrompt("Correct!");
+
+      if (checkAnswer()) {
+        setPrompt("Correct! Scores: " + (score + 10));
       } else {
-        setPrompt("Wrong Choice!");
+        setPrompt("Wrong Choice! Scores: " + (score - 10));
       }
     } else {
       setStep(0);
@@ -71,25 +87,49 @@ export default function GamePage(props) {
   };
 
   const cardClickedHandler = (index) => {
-    if (cardSelection[index] === true) {
-      setCardSelection([false, false, false]);
-    } else {
-      let selection = [false, false, false];
-      selection[index] = true;
-      setCardSelection([...selection]);
+    if (step === 0) {
+      // setSingerSelected(index);
+      setCorrectAnswer(singers[index].correctAnswer);
+      console.log(correctAnswer);
     }
+    if (answer === index) {
+      setAnswer(-1);
+    } else {
+      setAnswer(index);
+    }
+
+    // if (cardSelection[index] === true) {
+    //   setCardSelection([false, false, false]);
+    // } else {
+    //   let selection = [false, false, false];
+    //   selection[index] = true;
+    //   setCardSelection([...selection]);
+    // }
   };
 
   const checkSelection = () => {
-    if (
-      cardSelection[0] === false &&
-      cardSelection[1] === false &&
-      cardSelection[2] === false
-    ) {
+    if (answer < 0) {
       return false;
     }
-    console.log(cardSelection);
     return true;
+    // if (
+    //   cardSelection[0] === false &&
+    //   cardSelection[1] === false &&
+    //   cardSelection[2] === false
+    // ) {
+    //   return false;
+    // }
+    // console.log(cardSelection);
+    // return true;
+  };
+
+  const checkAnswer = () => {
+    if (answer === correctAnswer) {
+      setScore(score + 10); // place holder
+      return true;
+    }
+    setScore(score - 10);
+    return false;
   };
 
   return (
@@ -107,12 +147,13 @@ export default function GamePage(props) {
                 <h3 className={classes.prompt}>{prompt}</h3>
               </GridItem>
               {singers.map((singer, index) => (
-                <GridItem xs={4} sm={4} md={4} lg={4}>
+                <GridItem id={index} xs={4} sm={4} md={4} lg={4}>
                   <div onClick={() => cardClickedHandler(index)}>
                     <GameCard
+                      index={index}
                       singer={singer}
                       step={step}
-                      selected={cardSelection[index]}
+                      selected={answer === index}
                     />
                   </div>
                 </GridItem>
