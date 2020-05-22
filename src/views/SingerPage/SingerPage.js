@@ -38,46 +38,10 @@ export default function SingerPage(props) {
     setCardAnimation("");
   }, 700);
   const classes = styles();
-<<<<<<< HEAD
   const {
     ...rest
   } = props;
-  return (<div>
-    <HeaderSingerPage/>
-    
-    <div className={classes.pageHeader} style={{
-        backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
-        backgroundSize: "cover",
-        backgroundPosition: "top center",
-        height: "100%"
-      }}>
-                <div className={classes.container}>
-          <GridContainer  direction="row" justify="space-between" alignItems="flex-end">
-          <GridItem xs={3} sm={3} md={3} lg={3}>
-          { <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="500" imageHeight="500" roundedSize="0"/> }
-          </GridItem>
-          <GridItem xs={3} sm={3} md={3} lg={3}>
-          <TextBoxSig/>
-          <Buttons/>
-          </GridItem>
-          </GridContainer>
-          <Footer whiteFont="whiteFont"/>
-        </div> 
-      <div className={classes.backgroundOverlap} style={{
-          backgroundImage: "url(" + Trapzoid + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
-        }}>
 
-
-
-  </div>
-  </div>
-  </div>);
-}
-
-=======
-  const { ...rest } = props;
-
-  //use hook to automatically run before rendering the page
   React.useEffect(() => {
     //Change this to actual
     const artistName = "50cent";
@@ -115,64 +79,36 @@ export default function SingerPage(props) {
         setArtistWork(selected);
       });
   }, []);
-  //alert for debug usage
-  //console.log(similarArtists);
-  //console.log(artistWork);
 
-  return (
-    <div>
-      <HeaderSearchBar />
-
-      <div
-        className={classes.pageHeader}
-        style={{
-          backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
-          backgroundSize: "cover",
-          backgroundPosition: "top center",
-        }}
-      >
-        <div
-          className={classes.backgroundOverlap}
-          style={{
-            backgroundImage: "url(" + Trapzoid + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
-          }}
-        >
-          <GridContainer>
-            <GridItem item="item" xs={12} sm={12}>
-              <GridContainer justify="center" alignItems="center" spacing={1}>
-                <GridItem xs={6} sm={6} md={6} lg={6}>
-                  <div className={classes.round}>
-                    {
-                      <ExampleComponent
-                        image={MyPhoto}
-                        roundedColor="#66A5CC"
-                        // imageWidth="700"
-                        // imageHeight="700"
-                        roundedSize="0"
-                      />
-                    }
-                  </div>
-                </GridItem>
-                <GridItem xs={6} sm={6} md={6} lg={6}>
-                  <TextBoxSig />
-                </GridItem>
-              </GridContainer>
-            </GridItem>
-            <GridItem item="item" xs={12} sm={12}>
-              <GridContainer justify="center" alignItems="center" spacing={1}>
-                <GridItem xs={6} sm={6} md={6} lg={6}></GridItem>
-                <GridItem xs={6} sm={6} md={6} lg={6}>
-                  <Buttons />
-                </GridItem>
-              </GridContainer>
-            </GridItem>
+  return (<div>
+    <HeaderSearchBar/>
+    
+    <div className={classes.pageHeader} style={{
+        backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
+        backgroundSize: "cover",
+        backgroundPosition: "top center",
+        height: "100%"
+      }}>
+                <div className={classes.container}>
+          <GridContainer  direction="row" justify="space-between" alignItems="flex-end">
+          <GridItem xs={3} sm={3} md={3} lg={3}>
+          { <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="500" imageHeight="500" roundedSize="0"/> }
+          </GridItem>
+          <GridItem xs={3} sm={3} md={3} lg={3}>
+          <TextBoxSig/>
+          <Buttons/>
+          </GridItem>
           </GridContainer>
-        </div>
-        <Footer whiteFont={classes.rightElems} />
-      </div>
-    </div>
-  );
+          <Footer whiteFont="whiteFont"/>
+        </div> 
+      <div className={classes.backgroundOverlap} style={{
+          backgroundImage: "url(" + Trapzoid + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
+        }}>
+
+
+
+  </div>
+  </div>
+  </div>);
 }
 
-//<ThemeProvider theme={theme}> </ThemeProvider>
->>>>>>> 142408c8f90449190fefb1ba33b7a0dc78009faf
