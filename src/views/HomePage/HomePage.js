@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
@@ -14,6 +14,7 @@ import GridItem from "components/Grid/GridItem.js";
 import SearchBar from "components/SearchBar/SearchBar.js";
 import KeyWordCard from "components/KeyWord/KeyWordCard.js";
 import TrendingLyrics from "components/TrendingLyrics/TrendingLyrics";
+import db from '../../database.js';
 
 import logo_lg from "assets/img/lyricshub-lg.png";
 // import logo_md from "assets/img/lyricshub-md.png";
@@ -25,11 +26,27 @@ const useStyles = makeStyles(styles);
 
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  const [allSinger, setAllSinger] = useState([]);
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
+
+  React.useEffect(() =>{
+    //starting firebase connection
+    const firebaseRef = db.database().ref("artists/")
+    firebaseRef.on("value", snap => {
+      //interpret the returned value
+      var allKeys =[]
+      for(var key in snap.val()){
+        allKeys.push(key)
+      }
+      setAllSinger(allKeys)
+    });
+  }, [])
+  //alert(allSinger)
+
   return (
     <div>
       <Header
