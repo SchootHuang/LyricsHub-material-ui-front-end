@@ -11,6 +11,7 @@ import HeaderSearchBar from "components/HeaderSearchBar/HeaderSearchBar.js";
 import Footer from "components/Footer/Footer.js";
 import TextBoxSig from "components/TextBoxSig/TextBoxSig.jsx";
 import Buttons from "components/Buttons/Buttons.js";
+import Trackbutton from "components/Trackbutton/Trackbutton.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 // import logo_md from "assets/img/lyricshub-md.png";
@@ -25,8 +26,13 @@ import Trapzoid from "assets/img/trapezoid.png";
 import stylesLogin from "assets/jss/material-kit-react/views/singerPage.js";
 import db from "../../database.js";
 
+
 // import styles from "assets/jss/material-kit-react/views/components.js";
 const styles = makeStyles(stylesLogin);
+const state = {
+  songName: "Love story",
+  url: "https://material-ui.com/zh/components/buttons/#api"
+  };
 
 export default function SingerPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
@@ -96,6 +102,7 @@ export default function SingerPage(props) {
           </GridItem>
           <GridItem xs={3} sm={3} md={3} lg={3}>
           <TextBoxSig/>
+          <Trackbutton name={this.state.songName} url={this.state.url} />
           <Buttons/>
           </GridItem>
           </GridContainer>
