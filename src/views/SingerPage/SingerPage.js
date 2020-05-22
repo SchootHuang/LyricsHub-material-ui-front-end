@@ -48,6 +48,7 @@ export default function SingerPage(props) {
     ...rest
   } = props;
 
+  //hook before the rendering
   React.useEffect(() => {
     //Change this to actual
     const artistName = "50cent";
@@ -85,6 +86,15 @@ export default function SingerPage(props) {
         setArtistWork(selected);
       });
   }, []);
+  console.log(artistWork)
+  /*
+  var let const
+  var trackButton = []
+  for(var i = 0; i < artistWork.length; i++){
+    trackButton.push(
+      <TrackButton name=artistWork[i] url='' />
+    )
+  }*/
 
   return (<div>
     <HeaderSearchBar/>
@@ -104,6 +114,7 @@ export default function SingerPage(props) {
           <TextBoxSig/>
           <Trackbutton name={this.state.songName} url={this.state.url} />
           <Buttons/>
+          {/*trackButton*/}
           </GridItem>
           </GridContainer>
           <Footer whiteFont="whiteFont"/>
