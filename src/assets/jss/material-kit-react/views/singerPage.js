@@ -7,11 +7,11 @@ const singerPageStyle = {
     position: "relative",
     paddingTop: "20vh",
     color: "#FFFFFF",
-    paddingBottom: "200px"
+    paddingBottom: "200px",
   },
   cardHidden: {
     opacity: "0",
-    transform: "translate3d(0, -60px, 0)"
+    transform: "translate3d(0, -60px, 0)",
   },
   pageHeader: {
     minHeight: "100vh",
@@ -24,7 +24,7 @@ const singerPageStyle = {
     border: "0",
     alignItems: "center",
     "&:before": {
-      background: "rgba(0, 0, 0, 0)"
+      background: "rgba(0, 0, 0, 0)",
     },
     "&:before,&:after": {
       position: "absolute",
@@ -34,19 +34,19 @@ const singerPageStyle = {
       display: "block",
       left: "0",
       top: "0",
-      content: '""'
+      content: '""',
     },
     "& footer li a,& footer li a:hover,& footer li a:active": {
-      color: "#FFFFFF"
+      color: "#FFFFFF",
     },
     "& footer": {
       position: "absolute",
       bottom: "0",
-      width: "100%"
-    }
+      width: "100%",
+    },
   },
   form: {
-    margin: "0"
+    margin: "0",
   },
   cardHeader: {
     width: "auto",
@@ -55,7 +55,7 @@ const singerPageStyle = {
     marginRight: "20px",
     marginTop: "-40px",
     padding: "20px 0",
-    marginBottom: "15px"
+    marginBottom: "15px",
   },
   socialIcons: {
     maxWidth: "24px",
@@ -66,26 +66,26 @@ const singerPageStyle = {
     top: "0",
     height: "100%",
     lineHeight: "41px",
-    fontSize: "20px"
+    fontSize: "20px",
   },
   divider: {
     marginTop: "30px",
     marginBottom: "0px",
-    textAlign: "center"
+    textAlign: "center",
   },
   cardFooter: {
     paddingTop: "0rem",
     border: "0",
     borderRadius: "6px",
-    justifyContent: "center !important"
+    justifyContent: "center !important",
   },
   socialLine: {
     marginTop: "1rem",
     textAlign: "center",
-    padding: "0"
+    padding: "0",
   },
   inputIconsColor: {
-    color: "#495057"
+    color: "#495057",
   },
 
   // added stuff
@@ -97,11 +97,11 @@ const singerPageStyle = {
     width: "100%",
     height: "45%",
     backgroundPosition: "top center",
-     backgroundRepeat: "no-repeat",
+    backgroundRepeat: "no-repeat",
     // height: "100%",
     // backgroundSize: "cover",
     backgroundImage:
-      'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./utils/background.png")'
+      'linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./utils/background.png")',
     //zIndex: "bottom"
   },
 
@@ -121,7 +121,7 @@ const singerPageStyle = {
     position: "fixed",
     top: "0",
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   square: {
     position: "relative",
@@ -133,7 +133,7 @@ const singerPageStyle = {
     width: "300px",
     height: "500px",
     borderStyle: "ridge",
-    margin: "10%"
+    margin: "10%",
   },
   squareSig: {
     position: "absolute",
@@ -145,20 +145,23 @@ const singerPageStyle = {
     width: "400px",
     height: "500px",
     borderStyle: "ridge",
-    margin: "10%"
+    margin: "10%",
   },
   content: {
     fontSize: "2em",
     fontFamily: "'Noto Sans SC', sans-serif",
     color: "black",
-    float: "right"
+    float: "right",
   },
-  round:{
-    position: "absolute",
+  round: {
+    // position: "absolute",
+    margin: "0 20%",
+    width: "100%",
   },
-  rightElems:{
-    position:"absolute",
-  }
+  rightElems: {
+    position: "inherit",
+    right: "30px",
+  },
 };
 
 export default singerPageStyle;
