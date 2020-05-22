@@ -1,55 +1,178 @@
-import React from "react";
-// @material-ui/core components
-import {makeStyles} from "@material-ui/core/styles";
-
-// @material-ui/icons
-
-// core components
-// import Header from "components/Header/Header.js";
-// import HeaderLinks from "components/Header/HeaderLinks.js";
+import React, { useState } from "react";
+import classNames from "classnames";
+import { makeStyles } from "@material-ui/core/styles";
 import HeaderSearchBar from "components/HeaderSearchBar/HeaderSearchBar.js";
-import Footer from "components/Footer/Footer.js";
-import TextBoxSig from "components/TextBoxSig/TextBoxSig.jsx";
-import Buttons from "components/Buttons/Buttons.js";
+import { TransitionGroup } from "react-transition-group";
+
+import stylesLogin from "assets/jss/material-kit-react/views/singerPage.js";
+import Button from "@material-ui/core/Button";
+import GameCard from "components/GameCard/GameCard";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
-import stylesLogin from "assets/jss/material-kit-react/views/singerPage.js";
-// import styles from "assets/jss/material-kit-react/views/components.js";
-const styles = makeStyles(stylesLogin);
+import styles from "assets/jss/material-kit-react/views/gamePage.js";
 
-export default function SingerPage(props) {
-  const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+const singers = [
+  // place holder
+  {
+    name: "Taylor Swift",
+    lyrics: [
+      "Taylor Swift: some lyrics bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
+      "some lyrics ...........lyrics .....................lyrics ..............lyrics ....................lyrics ............lyrics ..........lyrics ............................................................................",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    ],
+    correctAnswer: 0,
+  },
+  {
+    name: "Singer Name 2",
+    lyrics: [
+      "Singer Name 2) some lyrics Vestibulum lectus mauris ultrices eros in cursus turpis massa. Nullam ac tortor vitae purus faucibus. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Varius morbi enim nunc faucibus a pellentesque sit amet. Tempus imperdiet nulla malesuada pellentesque. Id aliquet risus feugiat in ante metus dictum. Et tortor at risus viverra adipiscing. Mattis molestie a iaculis at erat pellentesque. Elementum nibh tellus molestie nunc non blandit massa enim nec. Purus gravida quis blandit turpis. Dignissim convallis aenean et tortor at risus viverra adipiscing at. ",
+      "some lyrics ...........lyrics .....................lyrics ..............lyrics ....................lyrics ............lyrics ..........lyrics ............................................................................",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    ],
+    correctAnswer: 1,
+  },
+  {
+    name: "Singer Name 3",
+    lyrics: [
+      "some lyrics bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
+      "some lyrics Turpis cursus in hac habitasse platea. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Et leo duis ut diam quam nulla porttitor. Non nisi est sit amet facilisis magna etiam tempor orci. Sit amet facilisis magna etiam. Parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Nibh tortor id aliquet lectus proin nibh nisl. Nisl purus in mollis nunc sed id semper risus in. Bibendum at varius vel pharetra. Tristique magna sit amet purus. Cras sed felis eget velit aliquet.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    ],
+    correctAnswer: 2,
+  },
+];
+
+const useStyles = makeStyles(styles);
+
+export default function GamePage(props) {
+  const [cardAnimaton, setCardAnimation] = useState("cardHidden");
+  const [prompt, setPrompt] = useState("Who is your favorite singer?");
+  const [singerSelected, setSingerSelected] = useState(0);
+  const [answer, setAnswer] = useState(-1);
+  const [correctAnswer, setCorrectAnswer] = useState(singers[0].correctAnswer);
+  const [step, setStep] = useState(0);
+  const [btnText, setBtnText] = useState("Next");
+  const [score, setScore] = useState(0);
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-  const classes = styles();
-  const {
-    ...rest
-  } = props;
-  return (<div>
-    <HeaderSearchBar/>
-    <div className={classes.pageHeader} style={{
-        backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
-        backgroundSize: "cover",
-        backgroundPosition: "top center"
-      }}>
-      <div className={classes.backgroundOverlap} style={{
-          backgroundImage: "url(" + Trapzoid + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
-        }}>
+  const classes = useStyles();
 
-        <div className="roundImage">
-          {/* <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="300" imageHeight="300" roundedSize="10"/> */}
-        </div>
+  const transitionHandler = () => {
+    if (checkSelection() === false && step !== 2) {
+      alert("Please select a card!");
+      return;
+    }
+    setAnswer(-1);
+    // setCardSelection([false, false, false]);
+    if (step === 0) {
+      setPrompt("Guess which Lyrics is AI generated?");
+      setBtnText("Submit");
+      setStep(step + 1);
+    } else if (step === 1) {
+      setBtnText("Restart");
+      setStep(step + 1);
 
-        <TextBoxSig className="rightElems"></TextBoxSig>
+      if (checkAnswer()) {
+        setPrompt("Correct! Scores: " + (score + 10));
+      } else {
+        setPrompt("Wrong Choice! Scores: " + (score - 10));
+      }
+    } else {
+      setStep(0);
+      setBtnText("Next");
+      setPrompt("Who is your favorite singer?");
+    }
+  };
 
-        <div className="rightElems">
-          <Buttons/>
-        </div>
+  const cardClickedHandler = (index) => {
+    if (step === 0) {
+      // setSingerSelected(index);
+      setCorrectAnswer(singers[index].correctAnswer);
+      console.log(correctAnswer);
+    }
+    if (answer === index) {
+      setAnswer(-1);
+    } else {
+      setAnswer(index);
+    }
+
+    // if (cardSelection[index] === true) {
+    //   setCardSelection([false, false, false]);
+    // } else {
+    //   let selection = [false, false, false];
+    //   selection[index] = true;
+    //   setCardSelection([...selection]);
+    // }
+  };
+
+  const checkSelection = () => {
+    if (answer < 0) {
+      return false;
+    }
+    return true;
+    // if (
+    //   cardSelection[0] === false &&
+    //   cardSelection[1] === false &&
+    //   cardSelection[2] === false
+    // ) {
+    //   return false;
+    // }
+    // console.log(cardSelection);
+    // return true;
+  };
+
+  const checkAnswer = () => {
+    if (answer === correctAnswer) {
+      setScore(score + 10); // place holder
+      return true;
+    }
+    setScore(score - 10);
+    return false;
+  };
+
+  return (
+    <div className={classes.GamePage}>
+      <HeaderSearchBar />
+
+      <div className={classNames(classes.main, classes.mainRaised)}>
+        <GridContainer>
+          <GridItem item="item" xs={1} sm={1} md={3} lg={5} />
+
+          <GridItem item="item" xs={12} sm={12}>
+            {/* container for cards */}
+            <GridContainer justify="center" alignItems="center" spacing={1}>
+              <GridItem xs={12}>
+                <h3 className={classes.prompt}>{prompt}</h3>
+              </GridItem>
+              {singers.map((singer, index) => (
+                <GridItem id={index} xs={4} sm={4} md={4} lg={4}>
+                  <div onClick={() => cardClickedHandler(index)}>
+                    <GameCard
+                      index={index}
+                      singer={singer}
+                      step={step}
+                      selected={answer === index}
+                    />
+                  </div>
+                </GridItem>
+              ))}
+            </GridContainer>
+          </GridItem>
+          <GridItem item="item" xs={1} sm={1} md={3} lg={5} />
+
+          <GridItem item="item" xs={12} sm={12}>
+            <button
+              varient="contained"
+              onClick={transitionHandler}
+              className={classes.button}
+            >
+              {btnText}
+            </button>
+          </GridItem>
+        </GridContainer>
       </div>
-
-      <Footer whiteFont="whiteFont"/>
     </div>
-  </div>);
+  );
 }
