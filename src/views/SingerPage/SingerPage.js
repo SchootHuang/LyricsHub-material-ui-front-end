@@ -80,6 +80,15 @@ export default function SingerPage(props) {
         setArtistWork(selected);
       });
   }, []);
+  console.log(artistWork)
+  /*
+  var let const
+  var trackButton = []
+  for(var i = 0; i < artistWork.length; i++){
+    trackButton.push(
+      <TrackButton name=artistWork[i] url='' />
+    )
+  }*/
 
   return (<div>
     <HeaderSearchBar/>
@@ -98,6 +107,7 @@ export default function SingerPage(props) {
           <GridItem xs={3} sm={3} md={3} lg={3}>
           <TextBoxSig/>
           <Buttons/>
+          {/*trackButton*/}
           </GridItem>
           </GridContainer>
           <Footer whiteFont="whiteFont"/>
