@@ -11,6 +11,8 @@ import HeaderSingerPage from "components/HeaderSingerPage/HeaderSingerPage.js";
 import Footer from "components/Footer/Footer.js";
 import TextBoxSig from "components/TextBoxSig/TextBoxSig.jsx";
 import Buttons from "components/Buttons/Buttons.js";
+import GridContainer from "components/Grid/GridContainer.js";
+import GridItem from "components/Grid/GridItem.js";
 // import logo_md from "assets/img/lyricshub-md.png";
 // import logo_sm from "assets/img/lyricshub-sm.png";
 
@@ -39,25 +41,29 @@ export default function SingerPage(props) {
     <div className={classes.pageHeader} style={{
         backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
         backgroundSize: "cover",
-        backgroundPosition: "top center"
+        backgroundPosition: "top center",
+        height: "100%"
       }}>
-        
+                <div className={classes.container}>
+          <GridContainer  direction="row" justify="space-between" alignItems="flex-end">
+          <GridItem xs={3} sm={3} md={3} lg={3}>
+          { <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="500" imageHeight="500" roundedSize="0"/> }
+          </GridItem>
+          <GridItem xs={3} sm={3} md={3} lg={3}>
+          <TextBoxSig/>
+          <Buttons/>
+          </GridItem>
+          </GridContainer>
+          <Footer whiteFont="whiteFont"/>
+        </div> 
       <div className={classes.backgroundOverlap} style={{
           backgroundImage: "url(" + Trapzoid + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
         }}>
-        <div className={classes.round}>
-          { <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="700" imageHeight="700" roundedSize="0"/> }
-        </div>
-        <div className="rightElems">
-          <TextBoxSig/>
-        </div>
-        <div className="rightElems">
-          <Buttons/>
-        </div>
-        </div>
-          <Footer whiteFont="whiteFont"/>
-        </div>
+
+
+
+  </div>
+  </div>
   </div>);
 }
 
-//<ThemeProvider theme={theme}> </ThemeProvider>
