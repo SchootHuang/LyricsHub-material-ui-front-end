@@ -45,7 +45,7 @@ export default function SingerPage(props) {
   //hook before the rendering
   React.useEffect(() => {
     //Change this to actual
-    const artistName = "50cent";
+    const artistName = "50cent"; //props.location.state.singerName
     //starting firebase connection
     const firebaseRef = db.database().ref("artists/" + artistName);
     firebaseRef.on("value", (snap) => {
@@ -80,7 +80,7 @@ export default function SingerPage(props) {
         setArtistWork(selected);
       });
   }, []);
-  console.log(artistWork)
+  console.log(similarArtists)
   /*
   var let const
   var trackButton = []

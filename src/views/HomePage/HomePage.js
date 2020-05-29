@@ -14,6 +14,8 @@ import GridItem from "components/Grid/GridItem.js";
 import SearchBar from "components/SearchBar/SearchBar.js";
 import KeyWordCard from "components/KeyWord/KeyWordCard.js";
 import TrendingLyrics from "components/TrendingLyrics/TrendingLyrics";
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
 import db from '../../database.js';
 
 import logo_lg from "assets/img/lyricshub-lg.png";
@@ -40,12 +42,18 @@ export default function LoginPage(props) {
       //interpret the returned value
       var allKeys =[]
       for(var key in snap.val()){
-        allKeys.push(key)
+        allKeys.push({name:key})
       }
       setAllSinger(allKeys)
     });
   }, [])
-  //alert(allSinger)
+  //console.log(allSinger)
+
+  const handleChange = (event, newValue) => {
+    if(newValue != null){
+      console.log(newValue)
+    }
+  };
 
   return (
     <div>
@@ -73,7 +81,17 @@ export default function LoginPage(props) {
             <GridItem item xs={1} sm={2} />
 
             <GridItem xs={9} sm={8} md={9} lg={9}>
-              <SearchBar></SearchBar>
+              {/*<SearchBar></SearchBar>*/}
+              <Autocomplete
+                      id="singer-name-autocomplete"
+                      options={allSinger}
+                      freeSolo={true}
+                      onChange={handleChange}
+                      fullWidth={true}
+                      style={{backgroundColor: "#ffffff"}}
+                      getOptionLabel={(option) => option.name}
+                      renderInput={(params) => <TextField {...params} label="Search for Artist" variant="outlined" />}
+                    />
             </GridItem>
           </GridContainer>
           <div className={classNames(classes.main, classes.mainRaised)}>
