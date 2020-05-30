@@ -14,6 +14,7 @@ import Buttons from "components/Buttons/Buttons.js";
 import Trackbutton from "components/Trackbutton/Trackbutton.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
+import List from '@material-ui/core/List';
 // import logo_md from "assets/img/lyricshub-md.png";
 // import logo_sm from "assets/img/lyricshub-sm.png";
 
@@ -25,6 +26,7 @@ import Trapzoid from "assets/img/trapezoid.png";
 
 import stylesLogin from "assets/jss/material-kit-react/views/singerPage.js";
 import db from "../../database.js";
+import { ListItem } from "@material-ui/core";
 
 
 // import styles from "assets/jss/material-kit-react/views/components.js";
@@ -87,14 +89,15 @@ export default function SingerPage(props) {
       });
   }, []);
   console.log(artistWork)
-  /*
-  var let const
+
   var trackButton = []
+  trackButton.push(<ListItem><TextBoxSig/></ListItem>)
   for(var i = 0; i < artistWork.length; i++){
     trackButton.push(
-      <TrackButton name=artistWork[i] url='' />
+      <ListItem> <Trackbutton name={artistWork[i]} url='' /></ListItem>
+     
     )
-  }*/
+  }
 
   return (<div>
     <HeaderSearchBar/>
@@ -111,8 +114,8 @@ export default function SingerPage(props) {
           { <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="500" imageHeight="500" roundedSize="0"/> }
           </GridItem>
           <GridItem xs={3} sm={3} md={3} lg={3}>
-          <TextBoxSig/>
-          <Trackbutton name={this.state.songName} url={this.state.url} />
+          <List dense={true}>{trackButton}</List>
+          {/*<Trackbutton name='NAME'url='' />*/}
           <Buttons/>
           {/*trackButton*/}
           </GridItem>
