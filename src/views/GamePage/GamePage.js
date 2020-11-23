@@ -11,34 +11,44 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
 import styles from "assets/jss/material-kit-react/views/gamePage.js";
+import taylor_profile from "assets/img/taylor.png";
+import troye_profile from "assets/img/troye.png";
+import ed_profile from "assets/img/ed.png";
+import lyricsgameImg from "assets/img/lyricsgame.png";
 
 const singers = [
   // place holder
   {
     name: "Taylor Swift",
+    img: taylor_profile,
     lyrics: [
-      "Taylor Swift: some lyrics bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
+      "Taylor Swift lyrics bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
       "some lyrics ...........lyrics .....................lyrics ..............lyrics ....................lyrics ............lyrics ..........lyrics ............................................................................",
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     ],
+    answers: ["Lyri", "You Need to Calm Down", "Love Story"],
     correctAnswer: 0,
   },
   {
-    name: "Singer Name 2",
+    name: "Troye Sivan",
+    img: troye_profile,
     lyrics: [
-      "Singer Name 2) some lyrics Vestibulum lectus mauris ultrices eros in cursus turpis massa. Nullam ac tortor vitae purus faucibus. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Varius morbi enim nunc faucibus a pellentesque sit amet. Tempus imperdiet nulla malesuada pellentesque. Id aliquet risus feugiat in ante metus dictum. Et tortor at risus viverra adipiscing. Mattis molestie a iaculis at erat pellentesque. Elementum nibh tellus molestie nunc non blandit massa enim nec. Purus gravida quis blandit turpis. Dignissim convallis aenean et tortor at risus viverra adipiscing at. ",
-      "some lyrics ...........lyrics .....................lyrics ..............lyrics ....................lyrics ............lyrics ..........lyrics ............................................................................",
+      "Troye Sivan lyrics ... Vestibulum lectus mauris ultrices eros in cursus turpis massa. Nullam ac tortor vitae purus faucibus. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Varius morbi enim nunc faucibus a pellentesque sit amet. Tempus imperdiet nulla malesuada pellentesque. Id aliquet risus feugiat in ante metus dictum. Et tortor at risus viverra adipiscing. Mattis molestie a iaculis at erat pellentesque. Elementum nibh tellus molestie nunc non blandit massa enim nec. Purus gravida quis blandit turpis. Dignissim convallis aenean et tortor at risus viverra adipiscing at. ",
+      "some lyrics by Troye Sivan ...........lyrics .....................lyrics ..............lyrics ....................lyrics ............lyrics ..........lyrics ............................................................................",
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     ],
+    answers: ["You Need to Calm Down", "Lyri", "Love Story"],
     correctAnswer: 1,
   },
   {
-    name: "Singer Name 3",
+    name: "Ed Sheeran",
+    img: ed_profile,
     lyrics: [
-      "some lyrics bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
+      "Ed Sheeran bla bla bla bla bla bla ......... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla ....... bla bla bla bla .......... ",
       "some lyrics Turpis cursus in hac habitasse platea. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Et leo duis ut diam quam nulla porttitor. Non nisi est sit amet facilisis magna etiam tempor orci. Sit amet facilisis magna etiam. Parturient montes nascetur ridiculus mus mauris vitae ultricies leo. Nibh tortor id aliquet lectus proin nibh nisl. Nisl purus in mollis nunc sed id semper risus in. Bibendum at varius vel pharetra. Tristique magna sit amet purus. Cras sed felis eget velit aliquet.",
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     ],
+    answers: ["You Need to Calm Down", "Love Story", "Lyri"],
     correctAnswer: 2,
   },
 ];
@@ -47,7 +57,7 @@ const useStyles = makeStyles(styles);
 
 export default function GamePage(props) {
   const [cardAnimaton, setCardAnimation] = useState("cardHidden");
-  const [prompt, setPrompt] = useState("Who is your favorite singer?");
+  const [prompt, setPrompt] = useState("1. Choose Your Favorite Artist");
   const [singerSelected, setSingerSelected] = useState(0);
   const [answer, setAnswer] = useState(-1);
   const [correctAnswer, setCorrectAnswer] = useState(singers[0].correctAnswer);
@@ -64,31 +74,33 @@ export default function GamePage(props) {
       alert("Please select a card!");
       return;
     }
-    setAnswer(-1);
+
     // setCardSelection([false, false, false]);
     if (step === 0) {
-      setPrompt("Guess which Lyrics is AI generated?");
-      setBtnText("Submit");
+      setPrompt("2. Guess which One is Generated By AI");
+      setBtnText("Confirm");
       setStep(step + 1);
+      setAnswer(-1);
     } else if (step === 1) {
-      setBtnText("Restart");
+      setBtnText("Play Again");
       setStep(step + 1);
 
       if (checkAnswer()) {
-        setPrompt("Correct! Scores: " + (score + 10));
+        setPrompt("You Got It! This Song is Generated By Lyri.");
       } else {
-        setPrompt("Wrong Choice! Scores: " + (score - 10));
+        setPrompt("Woops! This Song belongs to " + singers[singerSelected]);
       }
     } else {
       setStep(0);
       setBtnText("Next");
-      setPrompt("Who is your favorite singer?");
+      setPrompt("1. Choose Your Favorite Artist");
+      setAnswer(-1);
     }
   };
 
   const cardClickedHandler = (index) => {
     if (step === 0) {
-      // setSingerSelected(index);
+      setSingerSelected(index);
       setCorrectAnswer(singers[index].correctAnswer);
       console.log(correctAnswer);
     }
@@ -132,46 +144,94 @@ export default function GamePage(props) {
     return false;
   };
 
+  const shareLyricsHandler = () => {};
+
+  let buttons = (
+    <button
+      varient="contained"
+      onClick={transitionHandler}
+      className={classes.button}
+    >
+      {btnText}
+    </button>
+  );
+  if (step === 2) {
+    buttons = (
+      <div>
+        <button
+          varient="contained"
+          onClick={transitionHandler}
+          className={classes.whiteButton}
+        >
+          {btnText}
+        </button>
+        <button
+          varient="contained"
+          onClick={shareLyricsHandler}
+          className={classes.button}
+        >
+          Share Lyrics
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <div className={classes.GamePage}>
-      <HeaderSearchBar />
+    <div
+      className={classes.pageHeader}
+      style={{
+        backgroundImage: "linear-gradient(to bottom, #3D1B7C, #191931)",
+        backgroundSize: "cover",
+        backgroundPosition: "top center",
+      }}
+    >
+      <div className={classes.container}>
+        <HeaderSearchBar />
 
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <GridContainer>
-          <GridItem item="item" xs={1} sm={1} md={3} lg={5} />
+        <div
+          className={classNames(classes.main, classes.mainRaised)}
+          style={{ padding: 0 }}
+        >
+          <GridContainer>
+            <GridItem item="item" xs={1} sm={1} md={3} lg={5} />
 
-          <GridItem item="item" xs={12} sm={12}>
-            {/* container for cards */}
-            <GridContainer justify="center" alignItems="center" spacing={1}>
-              <GridItem xs={12}>
-                <h3 className={classes.prompt}>{prompt}</h3>
-              </GridItem>
-              {singers.map((singer, index) => (
-                <GridItem id={index} xs={4} sm={4} md={4} lg={4}>
-                  <div onClick={() => cardClickedHandler(index)}>
-                    <GameCard
-                      index={index}
-                      singer={singer}
-                      step={step}
-                      selected={answer === index}
-                    />
-                  </div>
+            <GridItem item="item" xs={12} sm={12}>
+              {/* container for cards */}
+              <GridContainer justify="center" alignItems="center" spacing={1}>
+                <GridItem xs={9}>
+                  <h3 className={classes.prompt}>{prompt}</h3>
                 </GridItem>
-              ))}
-            </GridContainer>
-          </GridItem>
-          <GridItem item="item" xs={1} sm={1} md={3} lg={5} />
+                <GridItem xs={3}>
+                  <img className={classes.logo} src={lyricsgameImg} />
+                </GridItem>
+                {singers.map((singer, index) => (
+                  <GridItem id={index} xs={4} sm={4} md={4} lg={4}>
+                    <div onClick={() => cardClickedHandler(index)}>
+                      <GameCard
+                        index={index}
+                        singer={singer}
+                        step={step}
+                        selected={answer === index}
+                        singerSelected={singers[singerSelected]}
+                        answer={answer}
+                      />
+                    </div>
+                  </GridItem>
+                ))}
+              </GridContainer>
+            </GridItem>
+            <GridItem item="item" xs={1} sm={1} md={3} lg={5} />
 
-          <GridItem item="item" xs={12} sm={12}>
-            <button
-              varient="contained"
-              onClick={transitionHandler}
-              className={classes.button}
+            <GridItem
+              item="item"
+              xs={12}
+              sm={12}
+              style={{ textAlign: "center" }}
             >
-              {btnText}
-            </button>
-          </GridItem>
-        </GridContainer>
+              {buttons}
+            </GridItem>
+          </GridContainer>
+        </div>
       </div>
     </div>
   );

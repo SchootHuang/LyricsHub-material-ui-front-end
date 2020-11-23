@@ -27,20 +27,25 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     left: "10%",
     borderRadius: "35px",
-    backgroundColor: fade("#FFFFFF", 0.15),
+    backgroundColor: fade("#FFFFFF", 0.5),
+    color: "#FFFFFF",
+
     "&:hover": {
-      backgroundColor: fade("#FFFFFF", 0.25),
+      backgroundColor: "#FFFFFF",
+      color: "#3D1B7C",
     },
+
     marginRight: theme.spacing(2),
     marginLeft: theme.spacing(5),
-    height: "35px",
+    height: "30px",
     width: "auto",
+    // alignContent: "center",
   },
 
   searchBtn: {
-    position: "relative",
+    position: "inherit",
     right: "0px",
-    bottom: "3.5px",
+    bottom: "5px",
     padding: 10,
   },
 
@@ -55,8 +60,8 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: `calc(${theme.spacing(1)}px)`,
     transition: theme.transitions.create("width"),
     width: "150px",
-    position: "relative",
-    bottom: "3px",
+    position: "inherit",
+    bottom: "4.8px",
     [theme.breakpoints.up("md")]: {
       width: "400px",
     },
