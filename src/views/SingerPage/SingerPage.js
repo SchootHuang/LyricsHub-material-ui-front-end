@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import './style.css';
 
 // @material-ui/icons
 
@@ -101,7 +102,6 @@ export default function SingerPage(props) {
 
   return (<div>
     <HeaderSearchBar/>
-    
     <div className={classes.pageHeader} style={{
         backgroundImage: "url(" + MyPhoto + ")", //"linear-gradient(to bottom, #3D1B7C, #191931)",
         backgroundSize: "cover",
@@ -112,6 +112,14 @@ export default function SingerPage(props) {
           <GridContainer  direction="row" justify="space-between" alignItems="flex-end">
           <GridItem xs={3} sm={3} md={3} lg={3}>
           { <ExampleComponent image={MyPhoto} roundedColor="#66A5CC" imageWidth="500" imageHeight="500" roundedSize="0"/> }
+           <img src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607189893927&di=53384907b9d3e34d07db047ae66cd79d&imgtype=0&src=http%3A%2F%2Fac-q.static.booking.cn%2Fimages%2Fhotel%2Fmax1024x768%2F111%2F111145520.jpg"
+    style={{width: 120, height: 120, position: 'absolute', top: 180, left: 450}} roundedCircle/>
+    <img src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607189893927&di=53384907b9d3e34d07db047ae66cd79d&imgtype=0&src=http%3A%2F%2Fac-q.static.booking.cn%2Fimages%2Fhotel%2Fmax1024x768%2F111%2F111145520.jpg"
+    style={{width: 120, height: 120, position: 'absolute', top: 300, left: 420}} roundedCircle/>
+    <img src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607189893927&di=53384907b9d3e34d07db047ae66cd79d&imgtype=0&src=http%3A%2F%2Fac-q.static.booking.cn%2Fimages%2Fhotel%2Fmax1024x768%2F111%2F111145520.jpg"
+    style={{width: 120, height: 120, position: 'absolute', top: 410, left: 360}} roundedCircle/>
+    <img src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607189893927&di=53384907b9d3e34d07db047ae66cd79d&imgtype=0&src=http%3A%2F%2Fac-q.static.booking.cn%2Fimages%2Fhotel%2Fmax1024x768%2F111%2F111145520.jpg"
+    style={{width: 120, height: 120, position: 'absolute', top: 450, left: 240}} roundedCircle/>
           </GridItem>
           <GridItem xs={3} sm={3} md={3} lg={3}>
           <List dense={true}>{trackButton}</List>

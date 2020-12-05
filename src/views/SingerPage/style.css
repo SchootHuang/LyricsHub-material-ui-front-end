@@ -1,3 +1,4 @@
+/*
 .cover {
   position: fixed;
   top: 0;
@@ -16,7 +17,7 @@
   width: 100%;
   height: 100%;
   /*background-size: cover;
-  *//*background-image: url("./utils/trapezoid.png");*/
+  *//*background-image: url("./utils/trapezoid.png");
 }
 
 .square {
@@ -51,8 +52,12 @@
 
 .content {
   font-size: 2em;
-  /* padding-top: 20%; */
+  /* padding-top: 20%; 
   font-family: 'Noto Sans SC', sans-serif;
   color: black;
   float: right;
+}
+*/
+img {
+  border-radius: 50%;
 }
