@@ -54,7 +54,11 @@ export default function SingerPage(props) {
   //hook before the rendering
   React.useEffect(() => {
     //Change this to actual
-    const artistName = "50cent"; //props.location.state.singerName
+    var artistName = ""
+    if(props.location.state.singerName != null){
+      artistName = props.location.state.singerName;
+    }
+    console.log(artistName)
     //starting firebase connection
     const firebaseRef = db.database().ref("artists/" + artistName);
     firebaseRef.on("value", (snap) => {

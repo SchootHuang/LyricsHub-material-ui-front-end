@@ -16,6 +16,7 @@ import KeyWordCard from "components/KeyWord/KeyWordCard.js";
 import TrendingLyrics from "components/TrendingLyrics/TrendingLyrics";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
+import { Redirect } from "react-router-dom";
 import db from '../../database.js';
 
 import logo_lg from "assets/img/lyricshub-lg.png";
@@ -29,6 +30,8 @@ const useStyles = makeStyles(styles);
 export default function LoginPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   const [allSinger, setAllSinger] = useState([]);
+  const [redirect, setRedirect] = useState(false);
+  const [selectedSinger, setSelectedSinger] = useState("");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
@@ -50,8 +53,10 @@ export default function LoginPage(props) {
   //console.log(allSinger)
 
   const handleChange = (event, newValue) => {
-    if(newValue != null){
-      console.log(newValue)
+    if(newValue != null && newValue.name != null){
+      //console.log(newValue.name);
+      setRedirect(true);
+      setSelectedSinger(newValue.name);
     }
   };
 
@@ -64,6 +69,12 @@ export default function LoginPage(props) {
         rightLinks={<HeaderLinks />}
         {...rest}
       />
+      {redirect && (
+          <Redirect
+            push
+            to={{ pathname: "/singer-page", state: { singerName: selectedSinger}}}
+          />
+        )}
       <div
         className={classes.pageHeader}
         style={{
